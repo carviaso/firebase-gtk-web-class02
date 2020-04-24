@@ -24,7 +24,15 @@ var rsvpListener = null;
 var guestbookListener = null;
 
 // Add Firebase project configuration object here
-var firebaseConfig = {};
+var firebaseConfig = {
+  apiKey: "AIzaSyDF0DtLAIabwTbqXG_O1qJSt6zdZxa_gX4",
+  authDomain: "fir-web-codelab-eb35b.firebaseapp.com",
+  databaseURL: "https://fir-web-codelab-eb35b.firebaseio.com",
+  projectId: "fir-web-codelab-eb35b",
+  storageBucket: "fir-web-codelab-eb35b.appspot.com",
+  messagingSenderId: "888052366869",
+  appId: "1:888052366869:web:514aca708eaccaa46c181c"
+};
 
 // Initialize Firebase
 if (firebaseConfig && firebaseConfig.apiKey) {
