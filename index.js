@@ -26,12 +26,12 @@ var guestbookListener = null;
 // Add Firebase project configuration object here
 var firebaseConfig = {
   apiKey: "AIzaSyDF0DtLAIabwTbqXG_O1qJSt6zdZxa_gX4",
-  authDomain: "fir-web-codelab-eb35b.firebaseapp.com",
-  databaseURL: "https://fir-web-codelab-eb35b.firebaseio.com",
-  projectId: "fir-web-codelab-eb35b",
-  storageBucket: "fir-web-codelab-eb35b.appspot.com",
-  messagingSenderId: "888052366869",
-  appId: "1:888052366869:web:514aca708eaccaa46c181c"
+    authDomain: "fir-web-codelab-eb35b.firebaseapp.com",
+    databaseURL: "https://fir-web-codelab-eb35b.firebaseio.com",
+    projectId: "fir-web-codelab-eb35b",
+    storageBucket: "fir-web-codelab-eb35b.appspot.com",
+    messagingSenderId: "888052366869",
+    appId: "1:888052366869:web:514aca708eaccaa46c181c"
 };
 
 // Initialize Firebase
@@ -76,31 +76,31 @@ startRsvpButton.addEventListener('click', () => {
 
 // Listen to the current Auth state
 firebase.auth().onAuthStateChanged((user) => {
- if (user){
-   startRsvpButton.textContent = "LOGOUT";
-   // Show guestbook to logged-in users
-   guestbookContainer.style.display = "block";
- }
- else{
-   startRsvpButton.textContent = "RSVP";
-   // Hide guestbook for non-logged-in users
-   guestbookContainer.style.display = "none";
- }
+  if (user){
+    startRsvpButton.textContent = "LOGOUT";
+    // Show guestbook to logged-in users
+    guestbookContainer.style.display = "block";
+  }
+  else{
+    startRsvpButton.textContent = "RSVP";
+    // Hide guestbook for non-logged-in users
+    guestbookContainer.style.display = "none";
+  }
 });
 
 // Listen to the form submission
 form.addEventListener("submit", (e) => {
- // Prevent the default form redirect
- e.preventDefault();
- // Write a new message to the database collection "guestbook"
- firebase.firestore().collection("guestbook").add({
-   text: input.value,
-   timestamp: Date.now(),
-   name: firebase.auth().currentUser.displayName,
-   userId: firebase.auth().currentUser.uid
- })
- // clear message input field
- input.value = ""; 
- // Return false to avoid redirect
- return false;
+  // Prevent the default form redirect
+  e.preventDefault();
+  // Write a new message to the database collection "guestbook"
+  firebase.firestore().collection("guestbook").add({
+    text: input.value,
+    timestamp: Date.now(),
+    name: firebase.auth().currentUser.displayName,
+    userId: firebase.auth().currentUser.uid
+  })
+  // clear message input field
+  input.value = ""; 
+  // Return false to avoid redirect
+  return false;
 });
